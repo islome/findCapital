@@ -1,0 +1,296 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.result {
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+.results {
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #89aac3;
+    background-size: cover;
+    backdrop-filter: blur(7px);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #2c2f44;
+    font-style: oblique;
+}
+
+.button {
+    background-color: #2c2f44;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.img {
+    width: 400px;
+    height: 250px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    box-shadow: 8px 5px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: black;
+
+}
+
+.container {
+    padding-top: 70px;
+    text-align: center;
+    background-color: #a4b5b9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 7px 7px 8px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    height: 400px;
+    margin: 30px;
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.game-area .timer {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.game-area .question {
+    margin-bottom: 20px;
+}
+
+.game-area .question h2 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.game-area #options button {
+    background-color: #2c2f44;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.game-area #options button:hover {
+    background-color: #0056b3;
+}
+
+.game-area #options button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+
+
+/* timer (clock) */
+.loader {
+    position: relative;
+    background-color: white;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 3em;
+    top: -0.4em;
+    border-radius: 25px;
+    z-index: -1;
+    box-shadow: 8px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.clock {
+    position: relative;
+    top: -1.4em;
+    left: 0.05em;
+}
+
+.stage {
+    position: relative;
+    left: 0.5em;
+    background-color: black;
+    width: 4em;
+    height: .4em;
+    border-radius: 15px;
+    box-shadow: 8px 5px 5px rgba(0, 0, 0, 0.1);
+    z-index: 4;
+}
+
+.hold {
+    position: relative;
+    background-color: limegreen;
+    width: 0.1em;
+    height: 4em;
+    left: 2.5em;
+    top: -.25em;
+    animation: 1.3s dangle infinite;
+    box-shadow: 8px 5px 5px rgba(0, 0, 0, 0.1);
+    z-index: -1;
+}
+
+@keyframes dangle {
+    0% {
+        transform-origin: top center;
+        transform: rotate(45deg);
+    }
+
+    50% {
+        transform-origin: top center;
+        transform: rotate(-45deg);
+    }
+
+    100% {
+        transform-origin: top center;
+        transform: rotate(45deg);
+    }
+}
+
+.ball {
+    display: inline-block;
+    position: relative;
+    top: 3em;
+    left: -1.2em;
+    width: 2.5em;
+    height: 2.5em;
+    margin: 0;
+    border-radius: 50%;
+    background: #171717;
+    box-shadow: 8px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* timer uchun response */
+@media (max-width: 480px) {
+    .loader {
+        display: none;
+    }
+
+}
+
+/* Planshet uchun */
+@media (max-width: 768px) {
+    .loader {
+        transform: scale(0.7); /* Planshet uchun kichikroq */
+        transform-origin: center;
+    }
+
+    .stage {
+        width: 2.5em;
+        height: 0.25em;
+    }
+
+    .hold {
+        height: 2.5em;
+        left: 1.5em;
+    }
+
+    .ball {
+        width: 1.8em;
+        height: 1.8em;
+        top: 2.2em;
+        left: -0.9em;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        width: auto;
+        height: auto;
+        padding: 15px;
+        transition: .5s;
+        margin-bottom: 160px;
+        margin: 10px;
+    }
+
+    .img {
+        width: 250px;
+        height: 200px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .game-area .timer {
+        font-size: 16px;
+    }
+
+    .game-area .question h2 {
+        font-size: 20px;
+    }
+}
+
+/* Planshet uchun */
+@media (max-width: 768px) {
+    .container {
+        width: 80%;
+        height: auto;
+        padding: 20px;
+        transition: .5s;
+    }
+    .result {
+        margin-top: 35px;
+    }
+
+    .img {
+        width: 330px;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    .button {
+        font-size: 15px;
+        padding: 9px 18px;
+    }
+}
