@@ -70,19 +70,19 @@ h1 {
     width: 600px;
     height: 400px;
     margin: 30px;
-    animation: fadeIn 2.5s ease-in-out;
+    animation: slide-in 1s forwards;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.9);
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
     }
-    100% {
-        opacity: 1;
-        transform: scale(1);
+    to {
+        transform: translateX(0);
     }
 }
+
+
 
 .game-area .timer {
     font-size: 18px;
@@ -132,7 +132,9 @@ h1 {
     border-radius: 25px;
     z-index: -1;
     box-shadow: 8px 5px 5px rgba(0, 0, 0, 0.1);
+    animation: slide-in 1s forwards;
 }
+
 
 .clock {
     position: relative;
