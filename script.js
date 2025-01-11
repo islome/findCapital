@@ -5,6 +5,7 @@ let bestScores = {};
 let playerName = '';
 let timer;
 
+
 // Barcha mamlakatlarni yuklash
 async function loadCountries() {
     try {
@@ -145,6 +146,7 @@ function showResult() {
     document.querySelector(".hold").style.display = "none";
     document.querySelector(".stage").style.display = "none";
     console.log('Game over');
+    let bestScores = JSON.parse(localStorage.getItem("bestScores")) || {};
 }
 
 // Eng yaxshi natijalarni ko'rsatish
