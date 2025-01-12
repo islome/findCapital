@@ -85,9 +85,9 @@ h1 {
 
 
 .game-area .timer {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .game-area .question {
@@ -124,7 +124,7 @@ h1 {
 /* timer (clock) */
 .loader {
     position: relative;
-    background-color: white;
+    background-color: #a4b5b9;
     padding-left: 1.5em;
     padding-right: 1.5em;
     padding-top: 3em;
