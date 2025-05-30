@@ -1,7 +1,7 @@
 let allCountries = [];
 let currentQuestion = 0;
 let score = 0;
-let bestScores = {};
+let bestScores = JSON.parse(localStorage.getItem("bestScores")) || {};
 let playerName = '';
 let timer;
 
@@ -35,15 +35,6 @@ function askPlayerName() {
     }
 }
 
-// O'yinni boshlash
-function startGame() {
-    clearInterval(timer);
-    currentQuestion = 0;
-    score = 0;
-    console.log('Game started');
-    nextQuestion();
-}
-
 // Savolni ko'rsatish
 function nextQuestion() {
     if (currentQuestion === 10) {
@@ -61,14 +52,13 @@ function nextQuestion() {
             options.push(randomOption);
         }
     }
-
     shuffleArray(options);
 
     // HTML interfeysni yangilash
     document.querySelector(".question").innerHTML = `
         <p> </p>
         <h2>${randomCountry.name}</h2>
-        <img class="img" src="${randomCountry.flag}" alt="${randomCountry.name}" width="100"><br>
+        <img class="img" src="${randomCountry.flag}" alt="" width="100"><br>
     `;
 
     const optionsDiv = document.querySelector("#options");
@@ -125,6 +115,13 @@ function startTimer() {
     timerDiv.style.color = "#9a2f43";
 }
 
+// O'yini qayta ishga tushirish uchun
+function playAgain() {
+    location.reload();
+    console.log('Game started again!');
+}
+
+
 // Natijalarni ko'rsatish
 function showResult() {
     if (score > bestScores[playerName]) {
@@ -136,7 +133,7 @@ function showResult() {
         <h2>Game Over!</h2>
         <p>Your Score: ${score} / 10</p>
         <p>${score < 5 ? 'Don`t be panic, Try harder next time!' : 'You are a genius!'}</p>
-        <button class="button" onclick="startGame()">Play Again</button>
+        <button class="button" onclick="playAgain()">Play Again</button>
         <button class="button" onclick="showBestScores()">Results</button>
         </div>
     `;
@@ -149,6 +146,14 @@ function showResult() {
     document.querySelector(".stage").style.display = "none";
     console.log('Game over');
 }
+// O'yinni boshlash
+function startGame() {
+    clearInterval(timer);
+    currentQuestion = 0;
+    score = 0;
+    console.log('Game started');
+    nextQuestion();
+}
 
 // Eng yaxshi natijalarni ko'rsatish
 function showBestScores() {
@@ -159,7 +164,7 @@ function showBestScores() {
         <div class="results">
         <h2>The best results</h2>
         ${results}<br>
-        <button class="button" onclick="startGame()">Play Again</button>
+        <button class="button" onclick="playAgain()">Play Again</button>
         </div>
     `;
     document.querySelector(".container").style.width = "260px";
